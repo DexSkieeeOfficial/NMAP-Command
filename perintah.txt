@@ -1,0 +1,76 @@
+Perintah Nmap dan Keterangannya
+
+1. Pemindaian Dasar
+   - Scan Sederhana
+     nmap <IP atau domain>
+     Memindai port umum pada target.
+
+   - Scan Rentang IP
+     nmap 192.168.1.1-50
+     Memindai rentang IP dari 192.168.1.1 hingga 192.168.1.50.
+
+   - Scan Subnet
+     nmap 192.168.1.0/24
+     Memindai seluruh subnet 192.168.1.0/24.
+
+2. Pemindaian Port
+   - Scan Port Tertentu
+     nmap -p 22,80,443 <IP>
+     Memindai port 22, 80, dan 443.
+
+   - Scan Semua Port
+     nmap -p- <IP>
+     Memindai semua 65535 port TCP.
+
+   - Scan Port dengan Rentang
+     nmap -p 1-1000 <IP>
+     Memindai port dari 1 hingga 1000.
+
+3. Pemindaian Versi dan OS
+   - Deteksi Versi Layanan
+     nmap -sV <IP>
+     Mengidentifikasi versi layanan yang berjalan di port terbuka.
+
+   - Deteksi Sistem Operasi
+     nmap -O <IP>
+     Mendeteksi sistem operasi target.
+
+4. Pemindaian TCP dan UDP
+   - Scan TCP
+     nmap -sT <IP>
+     Scan TCP menggunakan koneksi TCP connect().
+
+   - Scan UDP
+     nmap -sU <IP>
+     Memindai port UDP pada target.
+
+5. Pemindaian Tersembunyi
+   - Scan dengan SYN (Stealth Scan)
+     nmap -sS <IP>
+     Melakukan pemindaian stealth SYN untuk mendeteksi port terbuka.
+
+   - Scan dengan Ping dan TCP SYN
+     nmap -sP -PS22,80 <IP>
+     Memindai dengan ping dan TCP SYN ke port 22 dan 80.
+
+6. Pemindaian Lanjutan
+   - Pemindaian dengan Skrip
+     nmap --script <script_name> <IP>
+     Menjalankan skrip Nmap Scripting Engine (NSE) untuk analisis lebih lanjut.
+
+   - Pemindaian dengan Output ke File
+     nmap -oN output.txt <IP>
+     Menyimpan hasil pemindaian ke file `output.txt`.
+
+7. Opsional dan Pengaturan
+   - Menentukan Waktu Timeout
+     nmap --host-timeout 30m <IP>
+     Mengatur waktu timeout untuk pemindaian host.
+
+   - Menentukan Pengaturan Kecepatan
+     nmap -T4 <IP>
+     Mengatur pengaturan kecepatan pemindaian ke level 4.
+
+Catatan:
+- Pastikan kamu memiliki izin sebelum memindai jaringan atau sistem yang bukan milikmu.
+- Gunakan `nmap --help` untuk melihat opsi dan perintah lebih lanjut.
